@@ -1,41 +1,221 @@
 
 
- 1.linux
+
+验证系统管理模块为统一的横向导航栏，位于页面最上方，包括：用户管理、白名单、告警管理、网络配置、系统设置、系统安全、日志审计、资源中心、网络检查工具；
+注：具体展示的模块和当前登录的用户角色的权限有关；
+6个
+系统管理员：用户管理 告警管理  网络配置 系统设置 系统安全 资源中心
+
+
+abcdef
+ghijkl
+mnopqr
+stuv
+
+测试地址:192.168.29.221 管理员账号:admin  dbapp@2018
+所属项目	战网迷雾系统	所属项目模块	
+[编号]标题	[B210419-011]V2.0.10.2_RC_210417--综合型蜜罐，配置服务，删除已经配置的服务，快速点击删除的确认按钮，出现“删除失败”的提示
+
+
+[B210419-011]V2.0.10.2_RC_210417--系统管理-用户管理--列表-选择列工具，需求描述中为【用户角色】，实际显示【角色】
+
+
+1094  业务逻辑：可疑样本未验证
+
+白名单-ip白名单-删
+
+文件：任何一个蜜罐中，进行文件上传
+
+
+
+Windows10系统蜜罐
 192.168.29.47
-1qazcde3
+192.168.29.47  
+
+ C:\Users\admin\Desktop\文档\hello.txt
+ 
+ 
+ 问题记录
+ 1：出厂默认系统管理员的真实姓名、手机号、邮箱均为空 V2.0.9  周怡萍  蒋菲     1029              
+ 
+ 
+V2.0.10.2_RC_210417--系统管理-告警管理-邮箱告警通知配置 
+ 检查标题是否重名
+
+网络配置 
+漏洞机IP配置：192.168.29.128
+有所修改后才会有弹框提示
 
 
-2.系统漏洞检查工具
-192.168.29.53, 1::29:106
-
-3.MySQL蜜罐
-192.168.29.57
+系统管理-网络配置-IP资源池-漏洞机IP配置-页面内容修改后点击保存-弹框页面关闭按钮无效
+漏洞机IP配置
 
 
-4.192.168.29.16
-web 密罐 网站安全
+文件密饵
+192.168.29.131
 
-明鉴网络安全等级保护检查工具箱测试  ，进度：80%
+确定要删除选中端口组吗？
 
-明鉴网络安全设备配置检查工具
+清除攻击告警数据成功
 
-liujin/ Fbi@test
+明鉴<sup>®</sup>迷网系统
 
-192.168.29.17 mysql 蜜罐
-
-若口令：
-win 7
-192.168.33.33  administrator /1qazcde3
-
-http://192.168.23.46
-
-http://192.168.33.30:88
-http://192.168.29.20:80
+虚拟交换机关键字搜索为虚拟交换机名称、物理网卡、部署区域
 
 
-http://192.168.29.53:567
-http://192.168.23.46
 
-APT 综合型服务蜜罐的wordpress可以制作apt数据,可以使用192.168.23.46上的awvs进行扫描， admin  1qazxcde!@#
-apt发送推送可以在https://192.168.29.223/#/risk-notice的配置-风险通知上查看,登录账号密码:
-admin\dbapp#2020
+默认引擎：
+
+IP地址：192.168.29.221
+
+漏洞机IP配置：
+192.168.29.135
+
+文件密饵ip配置
+192.168.29.131
+
+溯源服务IP配置
+firewall-cmd --query-port=5901/tcp
+
+
+
+1). ssh连接后台
+2). docker ps查看镜像，找到mongodb的id为XXXXXXXX(例如：6ee7d84f437c)
+3). sudo docker exec -it 6ee7d84f437c /bin/bash 进入
+4). mongo ----进入mongo数据库
+5). show dbs ----查看所有数据库
+6). use demon ----切换到这个demon数据库下(show collections 查看表, 看下alarms这个表在不在这个数据库下面，若在执行以下语句)
+8). 执行以下语句：
+db.getCollection('alarms').aggregate([{"$match":{"visible": true}},
+{"$group": {"_id": "$risk_level",  "count": {"$sum": 1}}},
+{"$project": {"_id": 0, "risk_level": "$_id", "count": 1}},
+{"$sort": {"count": -1}}
+])
+
+升级文件支持格式
+上传文件失败，请导入 .tar.gz,.tar,.gz格式文件!
+
+oa蜜罐：基于ngnix  的weba蜜罐
+使用用户名: root 密码: qwedcvbhuio 登录成功
+
+网络配置逻辑：
+
+1.创建虚拟机
+2.创建端口组
+3.创建IP资源池
+4.部署蜜罐
+
+删除时会产生功能联动
+
+端口组，绑定的是虚拟交换机，虚拟交换机上的端口组数量跟此端口组相关联
+
+虚拟机
+ip资源池，在蜜罐占用时不允许删除
+
+删除端口组时，确认ip资源池无占用，否则无法删除
+
+1.在线升级
+升级进度条终止-资源中心升级成功后，手动终止进度条，继续点击在线升级，可升级成功，升级日志中，未显示升级日志，实际已更新为新版本）终止进度条，继续点击在线升级，可升级成功，升级日志中，未显示资源中心升级详情，已显示引擎升级详情，如附件图例所示
+2.离线升级
+手动终止进度条，继续点击在线升级，可升级成功，升级日志中，未显示升级日志，实际已更新为新版本）   
+
+
+xshell
+网络设置：
+进入分析资源中心配置，
+virsh list 读取配置文件的目录
+
+virsh list 
+列出所有的虚拟机，虚拟机的状态有（8）种 
+runing 是运行状态 
+idel 是空闲状态 
+pause 暂停状态 
+shutdown 关闭状态 
+crash 虚拟机崩坏状态 
+daying 垂死状态 
+shut off 不运行完全关闭 
+pmsuspended客户机被关掉电源中中断
+
+漏洞机配置：（此功能只影响cent蜜罐）vul_server
+文件密饵配置  bait_server
+溯源服务IP配置：trace_server 
+
+
+关闭漏洞机配置后，在本机远程ping 无法连接
+只有在资源中心才能ping 
+通
+
+192.168.29.232
+
+192.168.29.232
+http://192.168.29.232:8080/test.txt
+
+
+f15029240195@163.com
+
+ARQERHMEZWQVZOJO
+
+192.168.29.81
+
+
+git hub  
+2140540843@qq.com
+2140540843!Aqaz
+
+APT TOKEN
+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
+
+钉钉机器码
+https://oapi.dingtalk.com/robot/send?access_token=3b46c0247515a43c82ad0856ab8d0d86c3c77f8cd7045d81b1516d6761fb0c8b
+
+
+1     APT                            running
+ 21    2ce9592ab9fb11eb97c40894efab0642 running
+ 26    9e307de2ba0611eb984f0894efab0642 running
+ 28    a5a68b2eba0c11eb984f0894efab0642 running
+ 48    9f78fe8ebc2e11eb984f0894efab0642 running
+ 52    b1d397babc2e11eb97c40894efab0642 running
+ 58    5588e782bc3111eb97c40894efab0642 running
+ 64    41868670bc3311eb984f0894efab0642 running
+ 70    e372002cbc3311eb97c40894efab0642 running
+ 72    f9c4db06bc3311eb97c40894efab0642 running
+ 75    fe6cb0eebc3711eb97c40894efab0642 running
+ 77    25d76f2abc3811eb97c40894efab0642 running
+ 79    5421b5a2bc3811eb97c40894efab0642 running
+ 81    9acf5106bc3a11eb984f0894efab0642 running
+ 82    1d9232a8b9fb11eb984f0894efab0642 running
+ 107   7b58d47ebc3e11eb97c40894efab0642 running
+ 109   b9f0b7c0bc3311eb984f0894efab0642 running
+ 115   vul_server                     running
+ 119   bait_server                    running
+ 123   trace_server                   running
+ 139   2956c670bc5e11eb97c40894efab0642 running
+ 143   333a0986bc5e11eb97c40894efab0642 running
+ 146   1973ee9ebc6911eb97c40894efab0642 running
+ 148   2467c96ebc6f11eb984f0894efab0642 running
+
+
+1     APT                            running
+ 21    2ce9592ab9fb11eb97c40894efab0642 running
+ 26    9e307de2ba0611eb984f0894efab0642 running
+ 28    a5a68b2eba0c11eb984f0894efab0642 running
+ 48    9f78fe8ebc2e11eb984f0894efab0642 running
+ 52    b1d397babc2e11eb97c40894efab0642 running
+ 58    5588e782bc3111eb97c40894efab0642 running
+ 64    41868670bc3311eb984f0894efab0642 running
+ 70    e372002cbc3311eb97c40894efab0642 running
+ 72    f9c4db06bc3311eb97c40894efab0642 running
+ 75    fe6cb0eebc3711eb97c40894efab0642 running
+ 77    25d76f2abc3811eb97c40894efab0642 running
+ 79    5421b5a2bc3811eb97c40894efab0642 running
+ 81    9acf5106bc3a11eb984f0894efab0642 running
+ 82    1d9232a8b9fb11eb984f0894efab0642 running
+ 107   7b58d47ebc3e11eb97c40894efab0642 running
+ 109   b9f0b7c0bc3311eb984f0894efab0642 running
+ 115   vul_server                     running
+ 119   bait_server                    running
+ 123   trace_server                   running
+ 139   2956c670bc5e11eb97c40894efab0642 running
+ 143   333a0986bc5e11eb97c40894efab0642 running
+ 146   1973ee9ebc6911eb97c40894efab0642 running
+ 148   2467c96ebc6f11eb984f0894efab0642 running
